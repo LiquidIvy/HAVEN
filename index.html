@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Haven Manifesto | ZPCB Framework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1A2744;
+      --teal:   #2E86C1;
+      --amber:  #F59E0B;
+      --slate:  #475569;
+      --text:   #1E293B;
+      --subtle: #F1F5F9;
+      --border: #CBD5E1;
+      --white:  #FFFFFF;
+      --teal-light: #EFF6FF;
+      --amber-light: #FFFBEB;
+      --red:    #DC2626;
+      --green:  #16A34A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────────────── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid var(--teal);
+    }
+    .nav-brand {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+    .nav-brand span {
+      color: #93C5FD;
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #93C5FD;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ────────────────────────────────────────────────────────── */
+    .hero {
+      background: var(--navy);
+      padding: 5rem 2rem 4rem;
+      text-align: left;
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+
+    .hero-amber-bar {
+      width: 40px;
+      height: 5px;
+      background: var(--amber);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+    .hero h1 .tm {
+      font-size: 0.35em;
+      vertical-align: super;
+      color: var(--teal);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .hero-subtitle {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: #93C5FD;
+      margin-bottom: 0.5rem;
+    }
+    .hero-tag {
+      font-size: 0.85rem;
+      color: var(--slate);
+      letter-spacing: 0.06em;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+    .hero-rule {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 2rem;
+    }
+    .hero-principle {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      max-width: 620px;
+      padding-left: 1.2rem;
+      border-left: 3px solid var(--amber);
+    }
+
+    /* ── CONTENT ─────────────────────────────────────────────────────── */
+    .content { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+    section { padding: 3.5rem 0 0; }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-rule {
+      border: none;
+      border-top: 2px solid var(--teal);
+      margin-bottom: 1.5rem;
+    }
+
+    p { margin-bottom: 1rem; color: var(--text); font-size: 0.97rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── SOVEREIGN BAR — the signature element ───────────────────────── */
+    .sovereign {
+      border-left: 3px solid var(--amber);
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+      background: var(--amber-light);
+    }
+    .sovereign p {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--navy);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── CALLOUT ─────────────────────────────────────────────────────── */
+    .callout {
+      text-align: center;
+      padding: 1.75rem 2rem;
+      background: var(--subtle);
+      border-top: 2px solid var(--teal);
+      border-bottom: 2px solid var(--teal);
+      margin: 1.75rem 0;
+    }
+    .callout p {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--navy);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── PARADIGM TABLE ──────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    thead tr {
+      background: var(--navy);
+      color: var(--white);
+    }
+    thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.8rem;
+    }
+    tbody tr:nth-child(odd)  { background: var(--white); }
+    tbody tr:nth-child(even) { background: var(--subtle); }
+    tbody td {
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    tbody td strong { color: var(--navy); }
+    .tag-hoarder { color: var(--red); font-weight: 700; }
+    .tag-haven   { color: var(--green); font-weight: 700; }
+    .flow-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--navy);
+    }
+
+    /* ── FORMULA BLOCK ───────────────────────────────────────────────── */
+    .formula-block {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem;
+      margin: 1.75rem 0;
+      border-left: 4px solid var(--amber);
+    }
+    .formula {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--amber);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.1em;
+    }
+    .formula-items { list-style: none; padding: 0; }
+    .formula-items li {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .formula-items li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+    }
+    .formula-items li strong {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    /* ── METADATA GRID ───────────────────────────────────────────────── */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+    .meta-col-head {
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .meta-col-head.see   { background: var(--teal); color: var(--white); }
+    .meta-col-head.never { background: var(--navy); color: var(--white); }
+    .meta-row {
+      display: contents;
+    }
+    .meta-cell {
+      padding: 0.65rem 1rem;
+      font-size: 0.88rem;
+      background: var(--white);
+      line-height: 1.5;
+    }
+    .meta-cell.shaded { background: var(--subtle); }
+    .meta-cell.never-cell { color: var(--slate); font-style: italic; }
+
+    /* ── ARCHETYPE PILLS ─────────────────────────────────────────────── */
+    .archetype-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .arch-pill {
+      padding: 1rem 0.75rem;
+      text-align: center;
+      border-radius: 2px;
+    }
+    .arch-pill .arch-emoji { font-size: 1.4rem; display: block; margin-bottom: 0.35rem; }
+    .arch-pill .arch-name {
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .arch-pill .arch-q {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.75);
+      font-style: italic;
+      line-height: 1.4;
+      display: block;
+    }
+    .arch-shadow   { background: #3D1A78; }
+    .arch-forge    { background: #B84500; }
+    .arch-signal   { background: #0A5FA8; }
+    .arch-guardian { background: #1A6A3A; }
+
+    /* ── RED FLAG TIERS ──────────────────────────────────────────────── */
+    .tier-list { list-style: none; margin: 1.5rem 0; }
+    .tier-item {
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 6px;
+      border: 1px solid var(--border);
+    }
+    .tier-badge {
+      width: 90px;
+      min-width: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+    }
+    .tier-badge .t-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+    }
+    .tier-badge .t-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .tier-body-cell {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+    }
+    .tier-i   .tier-badge { background: #D97706; }
+    .tier-ii  .tier-badge { background: #EA580C; }
+    .tier-iii .tier-badge { background: #DC2626; }
+    .tier-iv  .tier-badge { background: #7F1D1D; }
+    .tier-iii .tier-body-cell { background: var(--amber-light); }
+
+    /* ── COUNCIL ─────────────────────────────────────────────────────── */
+    .council-grid {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+    .council-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--white);
+      font-weight: 700;
+    }
+    .council-content {
+      padding: 0.9rem 1.1rem;
+      background: var(--white);
+      border-left: 1px solid var(--border);
+    }
+    .council-content strong { color: var(--navy); display: block; margin-bottom: 0.25rem; font-size: 0.9rem; }
+    .council-content p { font-size: 0.86rem; margin: 0; color: var(--slate); }
+    .c-teal   .council-num { background: var(--teal); }
+    .c-navy   .council-num { background: var(--navy); }
+    .c-purple .council-num { background: #6D28D9; }
+    .c-slate  .council-num { background: var(--slate); }
+    .council-row { display: contents; }
+    .council-row:not(:last-child) .council-num,
+    .council-row:not(:last-child) .council-content {
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── VETO BOX ────────────────────────────────────────────────────── */
+    .veto-box {
+      border-left: 4px solid var(--navy);
+      border-top: 4px solid var(--navy);
+      padding: 1.25rem 1.5rem;
+      background: var(--teal-light);
+      margin: 1.5rem 0;
+    }
+    .veto-box p { font-size: 0.92rem; margin: 0; }
+
+    /* ── CTA ─────────────────────────────────────────────────────────── */
+    .cta-section {
+      background: var(--navy);
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .cta-inner { max-width: 580px; margin: 0 auto; }
+    .cta-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      color: #93C5FD;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: var(--amber); color: var(--navy); }
+    .btn-primary:hover { background: #FBBF24; }
+    .btn-secondary { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); }
+    .btn-secondary:hover { border-color: var(--white); }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────── */
+    footer {
+      background: var(--subtle);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    footer p { font-size: 0.8rem; color: var(--slate); margin: 0; }
+    footer strong { color: var(--navy); }
+
+    /* ── CLOSING POEM ────────────────────────────────────────────────── */
+    .closing-poem {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .closing-poem p {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      line-height: 1.9;
+      margin: 0;
+    }
+    .closing-box {
+      margin-top: 2rem;
+      padding: 1.75rem 2rem;
+      background: var(--subtle);
+      border-top: 2px solid var(--navy);
+      border-bottom: 2px solid var(--navy);
+    }
+    .closing-box p {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--navy);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .archetype-row { grid-template-columns: 1fr 1fr; }
+      .meta-grid { grid-template-columns: 1fr; }
+      .meta-col-head.never { display: none; }
+      .meta-cell.never-cell { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-brand">HAVEN<span>| ZPCB Framework</span></a>
+  <ul class="nav-links">
+    <li><a href="#principle">The Principle</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#constitution">Constitution</a></li>
+    <li><a href="#governance">Governance</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-amber-bar"></div>
+    <h1>Haven<span class="tm">™</span></h1>
+    <p class="hero-subtitle">The Haven Manifesto</p>
+    <p class="hero-tag">Zero-Persistence Cryptographic Boundary Framework &nbsp;·&nbsp; Reveritas Institute</p>
+    <hr class="hero-rule" />
+    <p class="hero-principle">
+      A conversation may produce understanding<br />
+      without requiring permanent possession<br />
+      of the conversation itself.
+    </p>
+  </div>
+</header>
+
+<!-- ── CONTENT ───────────────────────────────────────────────────────────── -->
+<main class="content">
+
+  <!-- SECTION 1: PARADIGM -->
+  <section id="principle">
+    <p class="eyebrow">01 &nbsp;·&nbsp; Paradigm</p>
+    <h2>Two Architectures of AI</h2>
+    <hr class="section-rule" />
+    <p>
+      To understand Haven's architecture, one must contrast the two opposing models
+      of how AI systems relate to human thought — and what each model ultimately demands.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Paradigm</th>
+            <th>Architectural Flow</th>
+            <th>Primary Characteristic</th>
+            <th>Liability Profile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag-hoarder">Profile Builder</span><br /><em>Traditional AI</em></td>
+            <td class="flow-cell">Interact → Store → Train → Retain</td>
+            <td>Archives private disclosures into permanent behavioral profiles of the user.</td>
+            <td>COPPA, GDPR, breach, developmental, and parental trust liability.</td>
+          </tr>
+          <tr>
+            <td><span class="tag-haven">Signal Reader</span><br /><em>Haven / ZPCB</em></td>
+            <td class="flow-cell">Interact → Classify → Signal → Purge</td>
+            <td>Extracts safety signals and cryptographic trust artifacts. Destroys conversation data.</td>
+            <td>Zero residual liability. No persistent data footprint to compromise, regulate, or ransom.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 2: FAILURE OF SURVEILLANCE -->
+  <section>
+    <p class="eyebrow">02 &nbsp;·&nbsp; The Problem</p>
+    <h2>The Failure of the Surveillance Default</h2>
+    <hr class="section-rule" />
+    <p>
+      For a generation, the only answer the child safety industry has offered parents was surveillance.
+      Monitor everything. Store everything. Flag every word.
+    </p>
+    <p>
+      This architecture contains a foundational flaw: <strong>it produces performance, not truth.</strong>
+    </p>
+    <p>
+      A child who knows they are being watched will not use the space honestly.
+      They perform safety for the audience. The tool meant to protect them becomes
+      the reason they withhold — driving genuine distress underground, where it cannot
+      be seen, flagged, or addressed.
+    </p>
+
+    <div class="sovereign">
+      <p>Surveillance does not create safety. It creates theater.</p>
+    </div>
+
+    <p>
+      Children are not retreating to AI conversations because they prefer machines.
+      They are retreating because they have found a space that listens without judgment,
+      without memory, without consequence. The architecture of care around that space
+      is what is currently absent. Haven provides it.
+    </p>
+  </section>
+
+  <!-- SECTION 3: HIDDEN LIABILITY -->
+  <section>
+    <p class="eyebrow">03 &nbsp;·&nbsp; The Liability</p>
+    <h2>The Hidden Cost of Owning a Child's Inner World</h2>
+    <hr class="section-rule" />
+    <p>
+      Every major LLM platform in operation today is accumulating a persistent record of
+      children's most private disclosures. A twelve-year-old who tells an AI they are
+      being bullied at school has created a data point that may persist in a commercial
+      training pipeline for an indeterminate period.
+    </p>
+    <p>
+      The regulatory exposure is significant. COPPA establishes strict requirements for
+      data collection from children under 13. GDPR Article 8 governs children's consent
+      to data processing across European jurisdictions. The California Consumer Privacy Act
+      extends protections to minors. These frameworks collectively establish a legal expectation
+      that responsible operators do not build permanent archives of children's private disclosures.
+    </p>
+    <p>
+      The liability does not end with regulation. <strong>A child who cannot trust the
+      confidentiality of their own thoughts will not use the space to process what they
+      actually need to process.</strong> The developmental cost of teaching a generation
+      to accept the surveillance of their inner world as the price of support cannot be
+      quantified in a breach report.
+    </p>
+  </section>
+
+  <!-- SECTION 4: B < PL -->
+  <section>
+    <p class="eyebrow">04 &nbsp;·&nbsp; The Economic Case</p>
+    <h2>The Risk Architecture of Youth AI</h2>
+    <hr class="section-rule" />
+    <p>
+      The Learned Hand rule offers a precise lens through which to evaluate the cost of
+      accumulating conversation data from minors:
+    </p>
+
+    <div class="formula-block">
+      <div class="formula">B &lt; PL</div>
+      <ul class="formula-items">
+        <li><strong>B</strong> &nbsp;=&nbsp; The burden of implementing Haven's zero-persistence architecture</li>
+        <li><strong>P</strong> &nbsp;=&nbsp; The probability that retained conversation data causes harm — regulatory, developmental, or breach</li>
+        <li><strong>L</strong> &nbsp;=&nbsp; The gravity of that harm to a child's privacy, safety, and long-term trust in private spaces</li>
+      </ul>
+    </div>
+
+    <p>
+      In a standard data-accumulating architecture, <strong>L</strong> for a youth AI platform is
+      not measured in dollars alone. It is measured in regulatory exposure, parental trust collapse,
+      and the long-term cost of conditioning a generation to accept the permanent ownership
+      of their private thoughts as the default condition of receiving support.
+    </p>
+    <p>
+      Haven drives the single-loss expectancy to zero by never creating a persistent record to compromise.
+      Because conversation data exists strictly in volatile, transient memory — and is cryptographically
+      confirmed purged at session end — there is no archive to breach, no training corpus to audit,
+      and no liability footprint to defend.
+    </p>
+
+    <div class="callout">
+      <p>
+        The transcript does not survive.<br />
+        The evidence that the child was safe does.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 5: ZPCB ARCHITECTURE -->
+  <section id="architecture">
+    <p class="eyebrow">05 &nbsp;·&nbsp; The Architecture</p>
+    <h2>How ZPCB Changes the Model</h2>
+    <hr class="section-rule" />
+    <p>
+      The Zero-Persistence Cryptographic Boundary Framework enforces a single unyielding
+      architectural constraint: <strong>zero persistence at rest.</strong>
+    </p>
+    <p>
+      Haven applies this constraint to every session. Conversation occurs. Safety signals are
+      extracted. The conversation is purged. A cryptographically signed certificate confirms
+      the purge occurred. The parent receives signal without content. The child retains
+      cognitive sovereignty. No persistent record of the child's inner world accumulates
+      anywhere in the architecture.
+    </p>
+
+    <p>
+      Personalization is achieved not through accumulation but through <strong>the Archetype System</strong> —
+      a session-scoped cognitive lens the child selects at the start of each session.
+      The system knows how to help the child <em>right now</em> without ever knowing who they have been.
+    </p>
+
+    <div class="archetype-row">
+      <div class="arch-pill arch-shadow">
+        <span class="arch-emoji">🌑</span>
+        <span class="arch-name">SHADOW</span>
+        <span class="arch-q">"What am I trying to understand?"</span>
+      </div>
+      <div class="arch-pill arch-forge">
+        <span class="arch-emoji">⚒</span>
+        <span class="arch-name">FORGE</span>
+        <span class="arch-q">"What can I build?"</span>
+      </div>
+      <div class="arch-pill arch-signal">
+        <span class="arch-emoji">📡</span>
+        <span class="arch-name">SIGNAL</span>
+        <span class="arch-q">"What can I learn?"</span>
+      </div>
+      <div class="arch-pill arch-guardian">
+        <span class="arch-emoji">🛡</span>
+        <span class="arch-name">GUARDIAN</span>
+        <span class="arch-q">"Who am I becoming?"</span>
+      </div>
+    </div>
+
+    <p>
+      Archetype selection is purged with the session. No archetype history accumulates.
+      The active archetype also calibrates the safety classifier — Shadow sessions carry
+      a naturally higher emotional baseline, and the protocol accounts for that context
+      without retaining evidence of it.
+    </p>
+  </section>
+
+  <!-- SECTION 6: SIGNAL WITHOUT SURVEILLANCE -->
+  <section>
+    <p class="eyebrow">06 &nbsp;·&nbsp; Signal Without Surveillance</p>
+    <h2>What Parents Receive</h2>
+    <hr class="section-rule" />
+    <p>
+      Parents require safety. Children require privacy. Traditional architectures force a
+      choice between them. Haven provides both through a metadata signal layer that surfaces
+      behavioral patterns without ever surfacing content.
+    </p>
+
+    <div class="meta-grid">
+      <div class="meta-col-head see">What Parents See</div>
+      <div class="meta-col-head never">What Parents Never See</div>
+
+      <div class="meta-cell">Session timing and date</div>
+      <div class="meta-cell never-cell shaded">Any conversation content</div>
+
+      <div class="meta-cell shaded">Duration and session frequency</div>
+      <div class="meta-cell never-cell">Topics discussed</div>
+
+      <div class="meta-cell">Active archetype (Shadow / Forge / Signal / Guardian)</div>
+      <div class="meta-cell never-cell shaded">What was said within the session</div>
+
+      <div class="meta-cell shaded">Emotional arc classification (Calm / Elevated / Distressed)</div>
+      <div class="meta-cell never-cell">Words or sentences</div>
+
+      <div class="meta-cell">Mid-session archetype switch (behavioral pattern only)</div>
+      <div class="meta-cell never-cell shaded">Content that preceded the switch</div>
+
+      <div class="meta-cell shaded"><span style="color:#DC2626;font-weight:700;">Red</span> / <span style="color:#D97706;font-weight:700;">Yellow</span> / <span style="color:#16A34A;font-weight:700;">Green</span> safety flag</div>
+      <div class="meta-cell never-cell">Content that triggered the flag</div>
+
+      <div class="meta-cell">ZPCB cryptographic purge certificate</div>
+      <div class="meta-cell never-cell shaded">The conversation itself</div>
+    </div>
+
+    <p>
+      A Red safety flag does not reveal content. It surfaces a single prompt:
+      <em>"Your child may need you to check in."</em> The conversation that prompted
+      the flag is gone. The invitation to reconnect is not.
+    </p>
+
+    <div class="sovereign">
+      <p>
+        The goal is not to read what a child said.<br />
+        The goal is to know they are okay — and to have proof when they are.
+      </p>
+    </div>
+
+    <!-- RED FLAG PROTOCOL -->
+    <p style="margin-top:1.5rem;">When session metadata indicates elevated risk, Haven activates a tiered escalation pathway:</p>
+    <ul class="tier-list">
+      <li class="tier-item tier-i">
+        <div class="tier-badge"><span class="t-num">Tier I</span><span class="t-name">Self-Regulation</span></div>
+        <div class="tier-body-cell">Grounding prompts and reflective reframing within the session. No external escalation.</div>
+      </li>
+      <li class="tier-item tier-ii">
+        <div class="tier-badge"><span class="t-num">Tier II</span><span class="t-name">Guardian Notification</span></div>
+        <div class="tier-body-cell">Parent dashboard receives a safety flag. Content is not disclosed. A check-in prompt is issued.</div>
+      </li>
+      <li class="tier-item tier-iii">
+        <div class="tier-badge"><span class="t-num">Tier III</span><span class="t-name">Trusted Adult Pathway</span></div>
+        <div class="tier-body-cell"><strong>The child controls access.</strong> A designated Trusted Adult may activate this pathway only by entering the child's current weekly rotating code — a code the child must actively share. The weekly rotation means the relationship cannot be set and forgotten. Haven never stores the code or its history.</div>
+      </li>
+      <li class="tier-item tier-iv">
+        <div class="tier-badge"><span class="t-num">Tier IV</span><span class="t-name">Emergency Pathway</span></div>
+        <div class="tier-body-cell">Direct pathway to emergency services or crisis resources. Activated when indicators suggest immediate risk of harm. The child is informed that this pathway has been engaged.</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- SECTION 7: CONSTITUTION -->
+  <section id="constitution">
+    <p class="eyebrow">07 &nbsp;·&nbsp; Constitutional Architecture</p>
+    <h2>The Haven Constitution</h2>
+    <hr class="section-rule" />
+    <p>
+      Haven is not governed by a terms-of-service document. It is governed by a written
+      constitution — six articles that are architectural constraints, not aspirational language.
+      They are publicly auditable, and no single individual may unilaterally amend them.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Article</th><th>Principle</th><th>Architectural Constraint</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>I</strong></td>
+            <td><strong>Cognitive Sovereignty</strong></td>
+            <td>Users retain ownership of their thoughts. No participant surrenders cognitive privacy in exchange for support.</td>
+          </tr>
+          <tr>
+            <td><strong>II</strong></td>
+            <td><strong>Human Priority</strong></td>
+            <td>Haven shall never attempt to replace parents, guardians, teachers, mentors, counselors, or trusted community members.</td>
+          </tr>
+          <tr>
+            <td><strong>III</strong></td>
+            <td><strong>Signal Without Surveillance</strong></td>
+            <td>Authorized guardians receive safety indicators and trust signals without unrestricted access to private conversations.</td>
+          </tr>
+          <tr>
+            <td><strong>IV</strong></td>
+            <td><strong>Constitutional Transparency</strong></td>
+            <td>All safety mechanisms, escalation pathways, and governance policies shall remain publicly documented and independently auditable.</td>
+          </tr>
+          <tr>
+            <td><strong>V</strong></td>
+            <td><strong>Zero Trust Data Retention</strong></td>
+            <td>Sensitive conversation data shall not be retained beyond its operational necessity. Trust shall emerge from evidence, not accumulation.</td>
+          </tr>
+          <tr>
+            <td><strong>VI</strong></td>
+            <td><strong>Cognitive Diversity</strong></td>
+            <td>Neurodivergent and neurotypical thinking patterns shall be treated as equally valid expressions of human cognition. The platform exists to support understanding, not assimilation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 8: GOVERNANCE -->
+  <section id="governance">
+    <p class="eyebrow">08 &nbsp;·&nbsp; Governance</p>
+    <h2>The Cognitive Sovereignty Council</h2>
+    <hr class="section-rule" />
+    <p>
+      Haven does not merely serve youth. Youth participate in defending Haven's principles.
+      The Cognitive Sovereignty Council is Haven's constitutional governance body —
+      empowered to challenge any feature or pattern it determines is systematically
+      pressuring users toward conformity.
+    </p>
+    <p>
+      <strong>Membership is earned through demonstrated thoughtfulness — not grades,
+      not popularity, not social status.</strong> The student who asks "How do we protect
+      privacy without sacrificing safety?" is infinitely more valuable than the student
+      with the perfect GPA.
+    </p>
+
+    <div class="council-grid">
+      <div class="council-row">
+        <div class="council-num c-teal" style="background:#2E86C1;color:white;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:2rem;padding:1rem;">4</div>
+        <div class="council-content" style="padding:0.9rem 1.1rem;background:white;border-left:1px solid var(--border);border-bottom:1px solid var(--border);">
+          <strong>Neurodivergent Youth Representatives</strong>
+          <p>Perspectives including autism, ADHD, dyslexia, and other neurodivergent cognitive profiles. Voting members. Article VI is their mandate.</p>
+        </div>
+      </div>
+      <div class="council-row">
+        <div class="council-num c-navy" style="background:#1A2744;color:white;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:2rem;padding:1rem;border-bottom:1px solid var(--border);">4</div>
+        <div class="council-content" style="padding:0.9rem 1.1rem;background:var(--subtle);border-left:1px solid var(--border);border-bottom:1px solid var(--border);">
+          <strong>General Youth Representatives</strong>
+          <p>Diverse backgrounds across urban, rural, and varied socioeconomic and educational environments. Voting members.</p>
+        </div>
+      </div>
+      <div class="council-row">
+        <div class="council-num c-purple" style="background:#6D28D9;color:white;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:2rem;padding:1rem;border-bottom:1px solid var(--border);">2</div>
+        <div class="council-content" style="padding:0.9rem 1.1rem;background:white;border-left:1px solid var(--border);border-bottom:1px solid var(--border);">
+          <strong>Young Adult Alumni (Ages 18–25)</strong>
+          <p>Recent enough to remember adolescence. Old enough to provide continuity across governance cycles.</p>
+        </div>
+      </div>
+      <div class="council-row">
+        <div class="council-num c-slate" style="background:#475569;color:white;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:2rem;padding:1rem;">2</div>
+        <div class="council-content" style="padding:0.9rem 1.1rem;background:var(--subtle);border-left:1px solid var(--border);">
+          <strong>Subject Matter Advisors (Non-Voting)</strong>
+          <p>Counselor, educator, or developmental psychologist. Advisory role only. Cannot override Council decisions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="veto-box">
+      <p>
+        <strong>The Veto of Assimilation.</strong> If the Council determines that an archetype,
+        safety feature, recommendation engine, or communication pattern is systematically
+        pressuring users toward conformity, it may force a formal architectural review.
+        Not a veto of the company. Not operational control. A constitutional challenge —
+        the most important kind.
+      </p>
+    </div>
+  </section>
+
+  <!-- CLOSING POEM -->
+  <div class="closing-poem">
+    <p>
+      Every generation deserves a place to think.<br />
+      A place to question.<br />
+      A place to learn.<br />
+      A place to become.
+    </p>
+    <div class="closing-box">
+      <p>
+        Haven exists to provide that space while preserving the dignity,
+        privacy, and sovereignty of the individual.
+        The future of AI should not be built upon the ownership of human thought.
+        It should be built upon the protection of it.
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>Haven is available for families, schools, and care providers.</h2>
+    <p>
+      No enterprise procurement required. A parent can create an account
+      and have their child active within minutes.
+    </p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-primary">Get Early Access</a>
+      <a href="#" class="btn btn-secondary">Read the Constitution</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+<footer>
+  <p>
+    <strong>HAVEN™</strong> &nbsp;·&nbsp; Powered by the Zero-Persistence Cryptographic Boundary Framework
+    &nbsp;·&nbsp; A Reveritas Institute Product
+    &nbsp;·&nbsp; © 2025 Joseph M. Ivy IV &nbsp;·&nbsp; All Rights Reserved
+  </p>
+</footer>
+
+</body>
+</html>
