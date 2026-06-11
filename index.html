@@ -49,6 +49,12 @@
     p{margin-bottom:1rem;color:var(--text);font-size:.97rem}
     p:last-child{margin-bottom:0}
 
+    /* INVARIANTS */
+    .invariant-list { display: grid; gap: 0.5rem; margin: 1.5rem 0; }
+    .invariant-item { display: flex; align-items: center; gap: 1.25rem; background: var(--subtle); padding: 1.15rem 1.5rem; border: 1px solid var(--border); border-left: 4px solid var(--amber); }
+    .invariant-item .inv-num { font-family: 'DM Serif Display', serif; font-size: 1.75rem; color: var(--teal); font-weight: 700; line-height: 1; min-width: 24px; }
+    .invariant-item p { margin: 0; font-size: 1.05rem; color: var(--navy); font-weight: 500; line-height: 1.4; }
+
     /* SOVEREIGN BAR */
     .sovereign{border-left:3px solid var(--amber);padding:1rem 1.25rem;margin:1.75rem 0;background:var(--amber-light)}
     .sovereign p{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.05rem;color:var(--navy);line-height:1.6;margin:0}
@@ -91,7 +97,7 @@
     .medbay{border:2px solid var(--red);background:#FFF5F5;padding:1.5rem;margin:1.75rem 0}
     .medbay-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:.75rem}
     .medbay-example{background:var(--navy);padding:1.25rem 1.5rem;margin-bottom:1rem}
-    .medbay .medbay-example p {font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--amber);line-height:1.6;margin:0}
+    .medbay .medbay-example p{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--amber);line-height:1.6;margin:0}
     .medbay-example p strong{color:var(--amber)}
     .medbay p{font-size:.9rem;color:var(--text);margin:0}
 
@@ -229,6 +235,7 @@
 <nav>
   <a href="#" class="nav-brand">HAVEN<span>| CROS · ZPCB Framework</span></a>
   <ul class="nav-links">
+    <li><a href="#invariants">Invariants</a></li>
     <li><a href="#cros">The Question</a></li>
     <li><a href="#bear">The Bear</a></li>
     <li><a href="#protocols">Alfred Protocols</a></li>
@@ -256,7 +263,42 @@
 
 <main class="content">
 
-  <!-- 01: TWO ARCHITECTURES -->
+  <section id="invariants">
+    <p class="eyebrow">00 &nbsp;·&nbsp; The Foundation</p>
+    <h2>Haven Invariants</h2>
+    <hr class="section-rule"/>
+    <div class="invariant-list">
+      <div class="invariant-item">
+        <div class="inv-num">1</div>
+        <p>Thought shall remain sovereign.</p>
+      </div>
+      <div class="invariant-item">
+        <div class="inv-num">2</div>
+        <p>Privacy shall not require isolation.</p>
+      </div>
+      <div class="invariant-item">
+        <div class="inv-num">3</div>
+        <p>Safety shall not require surveillance.</p>
+      </div>
+      <div class="invariant-item">
+        <div class="inv-num">4</div>
+        <p>Cognitive diversity shall be protected.</p>
+      </div>
+      <div class="invariant-item">
+        <div class="inv-num">5</div>
+        <p>Human relationships remain primary.</p>
+      </div>
+      <div class="invariant-item">
+        <div class="inv-num">6</div>
+        <p>No participant may purchase influence over thought.</p>
+      </div>
+      <div class="invariant-item">
+        <div class="inv-num">7</div>
+        <p>The platform exists to strengthen human flourishing.</p>
+      </div>
+    </div>
+  </section>
+
   <section>
     <p class="eyebrow">01 &nbsp;·&nbsp; Paradigm</p>
     <h2>Two Architectures of AI</h2>
@@ -287,7 +329,6 @@
     </div>
   </section>
 
-  <!-- 02: CROS -->
   <section id="cros">
     <p class="eyebrow">02 &nbsp;·&nbsp; The Hard Question</p>
     <h2>A Cognitive Relationship Operating System</h2>
@@ -314,7 +355,6 @@
     </p>
   </section>
 
-  <!-- 03: THE BEAR -->
   <section id="bear">
     <p class="eyebrow">03 &nbsp;·&nbsp; The Parent Intelligence Layer</p>
     <h2>The Bear</h2>
@@ -350,7 +390,6 @@
       <cite>— The Bear &nbsp;·&nbsp; Haven Parent Intelligence</cite>
     </div>
 
-    <!-- KINETIC METADATA -->
     <p style="margin-top:1.25rem">The Bear monitors the following kinetic signals — none of which require reading a single word:</p>
     <div class="kinetic-grid">
       <div class="kinetic-item">
@@ -380,7 +419,6 @@
     </div>
   </section>
 
-  <!-- 04: ALFRED PROTOCOLS TIERS -->
   <section id="protocols">
     <p class="eyebrow">04 &nbsp;·&nbsp; The Alfred Protocols</p>
     <h2>Four Tiers of Relationship Intelligence</h2>
@@ -460,7 +498,6 @@
       </div>
     </div>
 
-    <!-- MEDBAY PROTOCOL -->
     <div class="medbay">
       <div class="medbay-label">⚕ The Medbay Protocol — Diamond Tier</div>
       <div class="medbay-example">
@@ -478,7 +515,6 @@
       </p>
     </div>
 
-    <!-- COGNITIVE STATES -->
     <p>In the Emerald tier, the Bear identifies a child's current 14-day cognitive baseline across three states:</p>
     <div class="cog-states">
       <div class="cog-state architect">
@@ -503,7 +539,6 @@
     </div>
   </section>
 
-  <!-- 05: SURVEILLANCE FAILURE + B < PL -->
   <section>
     <p class="eyebrow">05 &nbsp;·&nbsp; The Problem</p>
     <h2>The Failure of the Surveillance Default</h2>
@@ -541,7 +576,6 @@
     </p>
   </section>
 
-  <!-- 06: ZPCB ARCHITECTURE + ARCHETYPES -->
   <section>
     <p class="eyebrow">06 &nbsp;·&nbsp; The Architecture</p>
     <h2>How ZPCB Changes the Model</h2>
@@ -587,7 +621,6 @@
     </p>
   </section>
 
-  <!-- 07: SIGNAL WITHOUT SURVEILLANCE -->
   <section>
     <p class="eyebrow">07 &nbsp;·&nbsp; Signal Without Surveillance</p>
     <h2>What Parents Receive</h2>
@@ -615,7 +648,6 @@
       <div class="meta-cell never-cell shaded">The conversation itself</div>
     </div>
 
-    <!-- RED FLAG PROTOCOL -->
     <p style="margin-top:1.5rem">When session metadata indicates elevated risk, Haven activates a tiered escalation pathway:</p>
     <ul class="tier-list">
       <li class="tier-item tier-i">
@@ -637,7 +669,6 @@
     </ul>
   </section>
 
-  <!-- 08: CONSTITUTION -->
   <section id="constitution">
     <p class="eyebrow">08 &nbsp;·&nbsp; Constitutional Architecture</p>
     <h2>The Haven Constitution</h2>
@@ -660,7 +691,6 @@
     </table>
   </section>
 
-  <!-- 09: COUNCIL -->
   <section id="governance">
     <p class="eyebrow">09 &nbsp;·&nbsp; Governance</p>
     <h2>The Cognitive Sovereignty Council</h2>
